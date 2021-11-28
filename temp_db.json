@@ -1,0 +1,76 @@
+{
+  "problems": [
+    {
+      "id": 1, 
+      "name": "Multiples of 3 or 5", 
+      "solved": true, 
+      "params": [
+        {
+          "inputType": "int", 
+          "inputValue": "1000"
+        }
+      ]
+    },
+    {
+      "id": 2, 
+      "name": "Even Fibonacci numbers", 
+      "solved": true, 
+      "params": [
+        {
+          "inputType": "int", 
+          "inputValue": "4000000"
+        }
+      ]
+    },
+    {
+      "id": 3, 
+      "name": "Largest prime factor", 
+      "solved": true, 
+      "params": [
+        {
+          "inputType": "int", 
+          "inputValue": "600851475143"
+        }
+      ]
+    },
+    {
+      "id": 4, 
+      "name": "Largest palindrome product", 
+      "solved": false, 
+      "params": [
+        {
+          "inputType": "int", 
+          "inputValue": "999"
+        }
+      ]
+    },
+    {
+      "id": 6, 
+      "name": "Sum square difference", 
+      "solved": false, 
+      "params": [
+        {
+          "inputType": "int", 
+          "inputValue": "100"
+        }
+      ]
+    }
+  ], 
+  "solutions": [
+    {
+      "id": 1, 
+      "dateSolved": "2021-11-01", 
+      "solutionValue": 123
+    },
+    {
+      "id": 2, 
+      "dateSolved": "2021-11-02", 
+      "solutionValue": 68546545
+    },
+    {
+      "id": 3, 
+      "dateSolved": "2021-11-05", 
+      "solutionValue": 654
+    }    
+  ]
+}

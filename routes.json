@@ -1,5 +1,6 @@
 {
+  "/api/": "/$1", 
   "/problems": "/problems", 
-  "/tools": "/tools", 
-  "/about": "/about"
+  "/solutions": "/solutions", 
+  "/reset": "/reset"
 }
