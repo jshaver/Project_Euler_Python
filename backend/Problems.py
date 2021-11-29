@@ -1,8 +1,5 @@
 from Crypto.Util.number import bignum
-
 from Tools import *
-
-
 
 
 # region Problems 1-10

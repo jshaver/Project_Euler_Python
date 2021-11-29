@@ -3,12 +3,12 @@ from timeit import default_timer as timer
 
 print("Starting...")
 
-# val1 = input("Enter input 1: ")
+val1 = input("Enter input 1: ")
 # val2 = input("Enter input 2: ")
 # print("Input: " + val1 + " : " + val2)
 
 start = timer()
-result = solve_022()
+result = solve_001(int(val1))
 end = timer()
 
 print("Result: " + str(result))
