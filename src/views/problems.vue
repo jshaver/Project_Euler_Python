@@ -34,7 +34,7 @@
 
 <script>
 
-import { dataService } from '../shared/data.service';
+import { dataService } from '../services/data.service';
 
 export default {
   name: 'Problems', 

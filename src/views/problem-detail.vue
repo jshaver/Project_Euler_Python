@@ -41,6 +41,9 @@
           <i class="fas fa-save"></i>
           <span>Save</span>
         </button>
+        <button class="link card-footer-item" @click="solve()" >
+          <span>Solve</span>
+        </button>
       </footer>
     </div>
   </div>
@@ -48,7 +51,7 @@
 
 <script>
 
-import { dataService } from '../shared/data.service';
+import { dataService } from '../services/data.service';
 import { logger } from '../shared/logger';
 import { format } from 'date-fns';
 
@@ -75,11 +78,9 @@ export default {
   }, 
   methods: {
     cancel() {
-      logger.info('problem-detail cancel button pressed');
       this.$router.push({ name: 'problems' });
     }, 
     async update() {
-      logger.info('problem-detail update button pressed');
       await dataService.updateProblem(this.problem);
       
       if (this.problem.solved){
@@ -93,6 +94,9 @@ export default {
       }
 
       this.$router.push({ name: 'problems' });
+    }, 
+    async solve(){
+      
     }
   }, 
   filters: {

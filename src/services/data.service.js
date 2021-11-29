@@ -1,8 +1,8 @@
 import * as axios from 'axios';
 import { format } from 'date-fns';
-import { API } from './config';
-import { logger } from './logger';
-import { inputDateFormat } from './constants';
+import { API } from '../shared/config';
+import { logger } from '../shared/logger';
+import { inputDateFormat } from '../shared/constants';
 
 
 
