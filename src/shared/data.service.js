@@ -92,6 +92,18 @@ const updateSolution = async function(solution){
   }
 }
 
+const deleteSolution = async function(id){
+  try{
+    const response = await axios.delete(`${API}/solutions/${id}`);
+    const deletedSolution = parseItem(response);
+    return deletedSolution;
+  } catch(e){
+    logger.error(e);
+    return null;
+  }
+}
+
+
 const parseList = response => {
   if (response.status !== 200) logger.error(response.message);
   if (!response.data) return [];
@@ -102,8 +114,8 @@ const parseList = response => {
   return list;
 };
 
-export const parseItem = (response) => {
-  if (response.status !== 200) throw Error(response.message);
+const parseItem = (response) => {
+  if (response.status < 200 || response.status >= 300) logger.error(response.message);
   let item = response.data;
   if (typeof item !== 'object') {
     item = undefined;
@@ -121,5 +133,5 @@ export const dataService = {
   getSolutions, 
   getSolution,
   updateSolution, 
-  //deleteSolution
+  deleteSolution
 };

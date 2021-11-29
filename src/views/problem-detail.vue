@@ -82,10 +82,15 @@ export default {
       logger.info('problem-detail update button pressed');
       await dataService.updateProblem(this.problem);
       
-      if (this.solution != null && this.solution != {} && this.solution.id != null)
-        await dataService.updateSolution(this.solution);
-      else if (this.solution != null && this.solution != {} && this.solution.id == null)
-        await dataService.createSolution(this.solution);
+      if (this.problem.solved){
+        if (this.solution != null && this.solution != {} && this.solution.id != null)
+          await dataService.updateSolution(this.solution);
+        else if (this.solution != null && this.solution != {} && this.solution.id == null)
+          this.solution.id = this.problem.id;
+          await dataService.createSolution(this.solution);
+      } else if (!this.problem.solved && this.solution != {} && this.solution.id != null) {
+        await dataService.deleteSolution(this.solution.id);
+      }
 
       this.$router.push({ name: 'problems' });
     }
