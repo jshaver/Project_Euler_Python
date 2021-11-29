@@ -2,6 +2,7 @@ import * as axios from 'axios';
 import { format } from 'date-fns';
 import { API } from './config';
 import { logger } from './logger';
+import { inputDateFormat } from './constants';
 
 
 
@@ -40,13 +41,28 @@ const updateProblem = async function(problem){
   }
 }
 
+const createSolution = async function(solution){
+  try{
+    const response = await axios.post(`${API}/solutions`, solution);
+    const newSolution = parseItem(response);
+    return newSolution;
+  } catch (e) {
+    logger.error(e);
+    return [];
+  }
+}
+
 const getSolutions = async function(){
   try{
     const response = await axios.get(`${API}/solutions`);
     let data = parseList(response);
+    const solutionData = data.map(s => {
+      s.solutionDate = format(s.solutionDate, inputDateFormat);
+      return s;
+    });
     //logger.info('getSolutions success', data);
     logger.info('getSolutions success');
-    return data;
+    return solutionData;
   } catch(e) {
     logger.error(e);
     return [];
@@ -57,6 +73,7 @@ const getSolution = async function(id){
   try{
     const response = await axios.get(`${API}/solutions/${id}`);
     let data = parseItem(response);
+    data.dateSolved = format(data.dateSolved, inputDateFormat);
     return data;
   } catch(e){
     logger.error(e);
@@ -100,9 +117,9 @@ export const dataService = {
   getProblem, 
   updateProblem,
   //deleteProblem,
-  //createSolution,
+  createSolution,
   getSolutions, 
   getSolution,
   updateSolution, 
   //deleteSolution
-}
+};
