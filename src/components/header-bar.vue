@@ -5,7 +5,9 @@
       role="navigation"
       aria-label="main navigation"
     >
-
+      <div class="navbar-item nav-home">
+        <span class="pageHeading">Project Euler Sandbox</span>
+      </div>
     </nav>
   </header>
 </template>

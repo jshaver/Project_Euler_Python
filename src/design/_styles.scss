@@ -57,6 +57,11 @@ header {
   font-family: Arial;
   span {
     letter-spacing: 0px;
+    &.pageHeading{
+      font-size: large;
+      font-weight: 600;
+      color: $primary-light;
+    }
   }
   .navbar-item.nav-home {
     border: 3px solid transparent;
@@ -129,10 +134,13 @@ header {
 ul.list {
   box-shadow: none;
 }
+div.content-container{
+  column-width: 700px;
+}
 div.card-content {
   background-color: $shade-light;
   .name {
-    font-size: 28px;
+    font-size: 20px;
     color: #000;
   }
   .description {
@@ -140,13 +148,18 @@ div.card-content {
     color: #999;
   }
   background-color: $shade-light;
+  padding: 1rem;
 }
 .card {
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 
 label.label {
   font-weight: normal;
+}
+.solved {
+  display: block;
+  color: $primary-light
 }
 
 p.card-header-title {
