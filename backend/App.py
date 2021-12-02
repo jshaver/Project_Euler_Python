@@ -11,7 +11,10 @@ api = Api(app)
 
 class Problems_Api(Resource):
     def get(self):
-        result = solve_api_test()
+        parser = reqparse.RequestParser()
+        parser.add_argument('limit', required=True, type=int)
+        args = parser.parse_args()
+        result = solve_001(args['limit'])
         return { 'data': result }, 200
 
 class Tools_Api(Resource):

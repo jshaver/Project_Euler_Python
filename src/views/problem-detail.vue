@@ -52,6 +52,7 @@
 <script>
 
 import { dataService } from '../services/data.service';
+import { pythonService } from '../services/python.service';
 import { logger } from '../shared/logger';
 import { format } from 'date-fns';
 
@@ -96,7 +97,9 @@ export default {
       this.$router.push({ name: 'problems' });
     }, 
     async solve(){
-      
+      let result = await pythonService.solveProblem001(10); // TODO: make this not hardcoded
+      if (result > 0)
+        this.problem.solution = result;
     }
   }, 
   filters: {
