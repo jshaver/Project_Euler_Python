@@ -2,6 +2,10 @@ from Crypto.Util.number import bignum
 from Tools import *
 
 
+def solve_api_test():
+    return 3.14159
+
+
 # region Problems 1-10
 def solve_001(upperLimit: int):
     result = 0

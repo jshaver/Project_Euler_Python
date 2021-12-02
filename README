@@ -1,7 +1,10 @@
 These are my personal solutions to problems on Project Euler.
 The math solutions themselves are written in Python and are in the 'backend' directory 
 and were developed with Pycharm, but open and execute in a VS Code terminal.
-Usage: Update Driver to specify which problem you wish to solve, call Driver via command line.
+The backend can be executed as a standalone command line app via Driver, but I have 
+added a Flask api that the Vue front end can call.
+Usage: Install flask, flask_restful, pandas, then execute python3 App.py and it will 
+    create a restful api running locally on port 5000 
 
 There is a Vue frontend with a (temporary) json db that holds problem information
 such as problem information, input parameters and solutions. This was developed in VS Code.
@@ -10,6 +13,8 @@ This will be expanded over time to hold solution performance information, abilit
 between solution api's, allowing direct comparison between solutions in python vs C# vs F# etc.
 
 Note: Python backend is not currently connected to UI (yet).
-Usage: Open in VS Code, open terminal in main directory, exec npm install @vue/cli, npm install
+Usage: Open terminal in main directory, exec npm install @vue/cli, npm install, then npm run dev
+This will create a restful api (port 8888) directly connected to the temp_db.json file as well as
+serve the Vue page from port 8080.
 
 
