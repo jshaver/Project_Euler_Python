@@ -30,16 +30,32 @@
         </div>
       </div>
       <footer class="card-footer">
-        <button
-          class="link card-footer-item cancel-button"
-          @click="cancel()"
-        >
+        <button class="link card-footer-item cancel-button" @click="cancel()">
           <i class="fas fa-undo"></i>
           <span>Cancel</span>
         </button>
         <button class="link card-footer-item" @click="update()">
           <i class="fas fa-save"></i>
           <span>Save</span>
+        </button>
+      </footer>
+    </div>
+    <div>
+      <div class="card-content">
+        <div class="content">
+          <div class="field">
+            <label class="label" for="problemInput">Problem Input</label>
+            <input class="input" name="problemInput" v-model="problemInput" />
+          </div>
+          <div class="field">
+            <label class="label" for="problemResult">Problem Result</label>
+            <input class="input" name="problemResult" v-model="problemResult" readonly/>
+          </div>
+        </div>
+      </div>
+      <footer class="card-footer">
+        <button class="link card-footer-item" @click="clear()">
+          <span>Clear</span>
         </button>
         <button class="link card-footer-item" @click="solve()" >
           <span>Solve</span>
@@ -69,7 +85,9 @@ export default {
   data(){
     return {
       problem: {}, 
-      solution: {}
+      solution: {}, 
+      problemInput: '', 
+      problemResult: ''
     };
   }, 
   async created(){
@@ -96,10 +114,14 @@ export default {
 
       this.$router.push({ name: 'problems' });
     }, 
+    clear(){
+      this.problemInput = '';
+      this.problemResult = '';
+    },
     async solve(){
-      let result = await pythonService.solveProblem001(10); // TODO: make this not hardcoded
+      let result = await pythonService.solveProblem(this.problem.id, this.problemInput);
       if (result > 0)
-        this.problem.solution = result;
+        this.problemResult = result;
     }
   }, 
   filters: {

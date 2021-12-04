@@ -13,7 +13,7 @@ const parseList = response => {
 const parseItem = response => {
   if (response.status < 200 || response.status >= 300) logger.error(response.message);
   let item = response.data;
-  if (typeof item !== 'object') {
+  if (typeof item == 'undefined') {
     item = undefined;
   }
   return item;

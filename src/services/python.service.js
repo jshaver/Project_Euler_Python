@@ -4,9 +4,9 @@ import { logger } from '../shared/logger';
 import { serviceTools } from './service_tools';
 
 
-const solveProblem001 = async function(inputParam){
+const solveProblem = async function(problemNum, inputParam){
   try{
-    const response = await axios.get(`http://localhost:5000/problems?limit=10`);
+    const response = await axios.get(`http://localhost:5000/solve?problem=${problemNum}&input=${inputParam}`);
     let data = serviceTools.parseItem(response);
     return data;
   } catch(e) {
@@ -17,5 +17,5 @@ const solveProblem001 = async function(inputParam){
 
 
 export const pythonService = {
-  solveProblem001
+  solveProblem
 };
