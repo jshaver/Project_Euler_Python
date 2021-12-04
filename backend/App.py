@@ -17,7 +17,13 @@ def problems_get():
   args = parser.parse_args()
   problemNum = args['problem']
   param = args['input']
-  result = solve_001(param)
+  solutionName = 'solve_' + '{:0>3}'.format(problemNum) + '(' + str(param) + ')'
+  # Note: This is a dangerous use of 'exec' by including user input. Do not use this in any sort of production environment!
+  # It also has a silly misuse of a global variable, but exec doesn't return anything so I had to get the results back somehow
+  print(solutionName)
+  exec(f"""locals()['returnVal'] = {solutionName}""")
+  print(locals()['returnVal'])
+  result = locals()['returnVal']
   return app.response_class(response=json.dumps(result), status=200, mimetype='application/json')
 
 
