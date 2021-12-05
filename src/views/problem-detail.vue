@@ -15,6 +15,9 @@
             <label class="label" for="name">Problem Name</label>
             <input class="input" name="name" v-model="problem.name" />
           </div>
+          <div>
+            <a v-bind:href="'http://projecteuler.net/problem='+problem.id" target="_blank">Link to Description</a>
+          </div>
           <div class="field">
             <label class="label" for="solved">Solved</label>
             <input type="checkbox" name="solved" v-model="problem.solved" />
